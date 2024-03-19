@@ -230,7 +230,8 @@ class Quest_user
          UPDATE 
             user
          SET 
-             balance=balance + (SELECT cost from quest where id_quest=:id_quest)";
+             balance=balance + (SELECT cost from quest where id_quest=:id_quest)
+	 WHERE id_user=:id_user";
 
     	// подготовка запроса
     	$stmt = $this->conn->prepare($query);
